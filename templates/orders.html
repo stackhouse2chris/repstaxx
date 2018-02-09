@@ -1,0 +1,176 @@
+{% extends 'sales.html' %}
+{% block content %}
+  <div class="w3-container">
+
+
+    <div class="w3-third">
+      <fieldset>
+        <legend>BILL TO CUSTOMER:  <button id="addcustbut" class="w3-button w3-background-white">+</button></legend>
+        <div class="w3-container">
+          <select name="billto" id="billto" title="Select Bill To Customer" class="w3-select w3-border w3-row w3-twothird">
+            {% for customer in customers %}
+            <option>{{customer.customer_id}}</option>
+            {% endfor %}
+          </select>
+          <form>
+            <input type="text" name="billtoname" id="billtoname" class="w3-input w3-row w3-border">
+            <input type="text" name="billtoaddr1" id="billtoaddr1" class="w3-input w3-row w3-border">
+            <input type="text" name="billtoaddr2" id="billtoaddr2" class="w3-input w3-row w3-border">
+            <input type="text" name="billtoaddrcsz" id="billtoaddrcsz" class="w3-input w3-row w3-border">
+          </form>
+        </div>
+      </fieldset>
+    </div>
+
+
+  <div class="w3-third">
+    <fieldset>
+      <legend>SHIP TO CUSTOMER:  <button id="addstbut" class="w3-button w3-background-white">+</button></legend>
+      <div class="w3-container">
+        <select name="shipto" id="shipto" title="Select Ship To Customer" class="w3-select w3-border w3-row w3-twothird">
+
+          <option>Ship To Customers</option>
+
+        </select>
+        <form>
+          <input type="text" name="shiptoname" id="shiptoname" class="w3-input w3-row w3-border">
+          <input type="text" name="shiptoaddr1" id="shiptoaddr1" class="w3-input w3-row w3-border">
+          <input type="text" name="shiptoaddr2" id="shiptoaddr2" class="w3-input w3-row w3-border">
+          <input type="text" name="shiptoaddrcsz" id="shiptoaddrcsz" class="w3-input w3-row w3-border">
+        </form>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <div class="w3-third">
+      <div class="w3-row">
+        <label for="ordernumber">Order Number</label>
+        <input type="text" name="ordernumber" class="w3-input w3-border">
+      </div>
+      <div class="w3-row">
+        <fieldset>
+          <legend>Order Type:</legend>
+          <div id="ordertype" class="w3-border">
+            <div class="w3-row">
+    		        <input type="radio" id="buysell" name="bsc" value="buysell" class="w3-radio w3-row" checked="checked">
+                <label>Buy / Sell</label>
+            </div>
+            <div class="w3-row">
+    		        <input type="radio" id="commission" name="bsc" value="commission" class="w3-radio">
+                <label>Commission</label>
+            </div>
+    	    </div>
+          <div>
+            <label for="principal">Principal: </label>
+            <select name="shipto" id="principal" class="w3-select w3-border" title="Select Principal Vendor If Applicable">
+              {% for principal in principals %}
+              <option>{{principal}}</option>
+              {% endfor %}
+            </select>
+          </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="w3-container">
+    <fieldset>
+    <legend>ORDER ATTRIBUTES: </legend>
+      <div class="w3-container w3-quarter" id="q1">
+        <label for="orderdate" style="margin-top:10px;">Order Date: </label>
+        <input type="text" name="orderdate" id="orderdate" class="w3-input" />
+        <label for="po" style="margin-top:10px;">PO Number: </label>
+        <input type="text" name="po" id="po" class="w3-input"/>
+        <label for="purchaser" style="margin-top:10px;">Purchaser: </label>
+        <input type="text" name="purchaser" id="purchaser" class="w3-input"/>
+      </div>
+      <div class="w3-container w3-quarter" id="q2">
+        <label for="salesman">Salesman: </label>
+        <select name="salesman" id="salesman" title="Select Salesman" class="w3-select">
+          <option>Salesman 1</option>
+          <option>Salesman 2</option>
+          <option>Salesman 3</option>
+          <option>Salesman 4</option>
+        </select>
+        <label for="fob" style="display:block;">FOB: </label>
+        <input type="text" name="fob" id="fob" class="w3-input"/>
+        <label for="shipdate" style="margin-top:10px;">Ship Date: </label>
+        <input type="text" name="shipdate" id="shipdate" class="w3-input"/>
+      </div>
+      <div class="w3-container w3-quarter" id="q3">
+        <label for="shipvia">Ship Via: </label>
+        <select name="shipvia" id="shipvia" title="Select Shipment Type" class="w3-select">
+          <option>Ship Via 1</option>
+          <option>Ship Via 2</option>
+          <option>Ship Via 3</option>
+          <option>Ship Via 4</option>
+        </select>
+        <label for="carrier" style="display:block;">Carrier: </label>
+        <input type="text" name="carrier" id="carrier" class="w3-input"/>
+        <label for="poref" style="margin-top:10px;">Reference PO: </label>
+        <div class="w3-row">
+          <input type="poref" name="poref" id="poref" class="w3-input w3-twothird"/>
+          <button id="viewpo" title="View PO" class="w3-btn">...</button>
+        </div>
+      </div>
+      <div class="w3-container w3-quarter" id="q4">
+        <label for="jobname" style="margin-top:10px;">Job Name: </label>
+        <input type="text" name="jobname" id="jobname" class="w3-input" />
+        <label for="shippingaccount" style="margin-top:10px;">Freight Account: </label>
+        <input type="text" name="shippingaccount" id="shippingaccount" class="w3-input"/>
+        <label for="factoryorder" style="margin-top:10px;">Factory Order: </label>
+        <input type="text" name="factoryorder" id="factoryorder" class="w3-input"/>
+      </div>
+    </fieldset>
+  </div>
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#items">Items</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#comments">Comments</a></li>
+      <li><a href="#dates">Dates</a></li>
+      <li><a href="#commission">Commission</a></li>
+      <li><a href="#footer">Footer</a></li>
+      <li><a href="#invoices">Invoices</a></li>
+    </ul>
+
+    <div id="items">
+      <div class="w3-container">
+        <div class="w3-container w3-col w3-border" style="width: 20%;">
+          <button class="w3-btn w3-block w3-border w3-margin-top" type="button" name="additem">Add</button>
+          <button class="w3-btn w3-block w3-border w3-margin-top" type="button" name="edititem">Edit</button>
+          <button class="w3-btn w3-block w3-border w3-margin-top w3-margin-bottom" type="button" name="deleteitem">Delete</button>
+        </div>
+        <div class="w3-container w3-rest w3-border" style="margin-left: 21%;">
+          <h1>Add Items</h1>
+        </div>
+      </div>
+    </div>
+
+    <div id="notes">
+      <textarea name="ordernotes" rows="8" cols="80"></textarea>
+    </div>
+
+    <div id="comments">
+      <textarea name="ordercomments" rows="8" cols="80"></textarea>
+    </div>
+
+    <div id="dates">
+      <h1>Dates</h1>
+    </div>
+
+    <div id=commission>
+      <h1>Commission</h1>
+    </div>
+
+    <div id=footer>
+      <h1>footer</h1>
+    </div>
+
+    <div id=invoices>
+      <h1>Invoices</h1>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="w3-container w3-margin-bottom">
+  <button type="button" name="addcustomer" class="w3-btn">Add</button>
+  <button type="button" name="savecustomer" class="w3-btn">Save</button>
+  <button type="button" name="deletecustomer" class="w3-btn">Delete</button>
+</div>
+<div class="w3-container">
+  <select class="w3-select w3-border w3-third w3-margin-right" id="customerid" name="customerid" value="">
+    {% for id in ids %}
+    <option value="{{id}}">{{id}}</option>
+    {% endfor %}
+  </select>
+  <select class="w3-select w3-border w3-half w3-margin-right" id="customername" name="customername" value="">
+    {% for name in names %}
+    <option value="{{name}}">{{name}}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="w3-container w3-col w3-half">
+  <label for="custid">Customer ID:</label>
+  <input id="custid" class="w3-input w3-border" type="text" name="custid" value="">
+  <label for="custname">Customer Name:</label>
+  <input id="custname" class="w3-input w3-border" type="text" name="custname" value="">
+  <label for="custadd1">Customer Address 1:</label>
+  <input id="custadd1" class="w3-input w3-border" type="text" name="custadd1" value="">
+  <label for="custadd2">Customer Address 2:</label>
+  <input id="custadd2" class="w3-input w3-border" type="text" name="custadd2" value="">
+  <label for="custcity">Customer City:</label>
+  <input id="custcity" class="w3-input w3-border" type="text" name="custcity" value="">
+  <label for="custstate">Customer State:</label>
+  <input id="custstate" class="w3-input w3-border" type="text" name="custstate" value="">
+  <label for="custzip">Customer Zip:</label>
+  <input id="custzip" class="w3-input w3-border" type="text" name="custzip" value="">
+  <label for="custtin">Customer TIN:</label>
+  <input class="w3-input w3-border" type="text" name="custtin" value="">
+  <label>Sales Tax Rate:</label>
+  <select class="w3-select w3-border" name="customerstr">
+    <option value="taxrate1">Tax Rate 1</option>
+  </select>
+</div>
+<div class="w3-container w3-col w3-half">
+  <label>Customer Type:</label>
+  <select class="w3-select w3-border" name="customertype">
+    <option value="wholesaler">wholesaler</option>
+
+  </select>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+  <div class="w3-bar w3-dark-gray">
+    <a href="/quotes" class="w3-bar-item w3-btn w3-light-gray w3-hover-pale-blue w3-border">Quotes</a>
+    <a href="/orders" class="w3-bar-item w3-btn w3-light-gray w3-hover-pale-blue w3-border">Orders</a>
+    <a href="/invoices" class="w3-bar-item w3-btn w3-light-gray w3-hover-pale-blue w3-border">Invoices</a>
+    <a href="#" class="w3-bar-item w3-btn w3-right w3-light-gray w3-hover-red w3-border">Payments</a>
+    <a href="#" class="w3-bar-item w3-btn w3-right w3-light-gray w3-hover-red w3-border">Import</a>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+
+{% endblock %}
