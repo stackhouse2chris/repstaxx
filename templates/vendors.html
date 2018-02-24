@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="w3-container w3-margin-bottom">
+  <button type="button" name="addvendor" class="w3-btn">Add</button>
+  <button type="button" name="savevendor" class="w3-btn">Save</button>
+  <button type="button" name="deletevendor" class="w3-btn">Delete</button>
+</div>
+<div class="w3-container">
+  <select class="w3-select w3-border w3-third w3-margin-right" id="vendorid" name="vednorid" value="">
+    {% for id in ids %}
+    <option value="{{id}}">{{id}}</option>
+    {% endfor %}
+  </select>
+  <select class="w3-select w3-border w3-half w3-margin-right" id="vendorname" name="vendorname" value="">
+    {% for name in names %}
+    <option value="{{name}}">{{name}}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="w3-container w3-col w3-half">
+  <label for="vendid">Vendor ID:</label>
+  <input id="vendid" class="w3-input w3-border" type="text" name="vendid" value="">
+  <label for="vendname">Vendor Name:</label>
+  <input id="vendname" class="w3-input w3-border" type="text" name="vendname" value="">
+  <label for="vendadd1">Vendor Address 1:</label>
+  <input id="vendadd1" class="w3-input w3-border" type="text" name="vendadd1" value="">
+  <label for="vendadd2">Vednor Address 2:</label>
+  <input id="vendadd2" class="w3-input w3-border" type="text" name="vendadd2" value="">
+  <label for="vendcity">Vendor City:</label>
+  <input id="vendcity" class="w3-input w3-border" type="text" name="vendcity" value="">
+  <label for="vendstate">Vendor State:</label>
+  <input id="vendstate" class="w3-input w3-border" type="text" name="vendstate" value="">
+  <label for="vendzip">Vendor Zip:</label>
+  <input id="vendzip" class="w3-input w3-border" type="text" name="vendzip" value="">
+  <label for="vendtin">Vendor TIN:</label>
+  <input class="w3-input w3-border" type="text" name="vendtin" value="">
+</div>
+<div class="w3-container w3-col w3-half">
+  <label>Vendor Type:</label>
+  <select class="w3-select w3-border" name="vendtype">
+    <option value="supplier">Supplier</option>
+
+  </select>
+
+</div>
+
+
+
+
+{% endblock %}

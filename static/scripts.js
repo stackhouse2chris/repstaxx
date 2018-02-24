@@ -22,6 +22,26 @@ $ ('#customerid').change(function(){
   });
 });
 
+$ ('#customername').change(function(){
+  var custname = $(this).val();
+  $.ajax({
+    type : 'GET',
+    url : '/customer'+'/'+custname,
+    dataType: "json",
+    cache: false,
+    success : function(result){
+      $('#custid').val(custid);
+      $('#custname').val(result.customername);
+      $('#custadd1').val(result.customeradd1);
+      $('#custadd2').val(result.customeradd2);
+      $('#custcity').val(result.customercity);
+      $('#custstate').val(result.customerstate);
+      $('#custzip').val(result.customerzip);
+      $('#customername').val(result.customername);
+    }
+  });
+});
+
 $ ('#billto').bind("change", function(){
   var custid = $(this).val();
   $.ajax({
